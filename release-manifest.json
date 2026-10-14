@@ -1,7 +1,8 @@
 {
-  "pack_sha256": "405ee491415e293439a4ecbea2c6193bd7495539ef48be022862234198c72dde",
-  "pack_bytes": 878279068,
+  "version": "2026-10-13",
   "godot": "4.7.2",
+  "pack_bytes": 899353616,
+  "pack_sha256": "93b4bf109e1fcebdbd90c377de3fe5321edad68ed3620df412d3e7234b134800",
   "pack_parts": [
     "index.pck.part000",
     "index.pck.part001",
@@ -21,6 +22,5 @@
     "index.pck.part015",
     "index.pck.part016",
     "index.pck.part017"
-  ],
-  "version": "2026-10-09"
+  ]
 }

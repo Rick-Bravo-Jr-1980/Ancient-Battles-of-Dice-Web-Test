@@ -20,10 +20,15 @@ This release includes the deployment-drag performance fix and packaged-resource 
 
 ## Release status and publishing
 
-The packaged game is the October 9, 2026 browser export. The proof-of-concept labeling update does not add subsequent local gameplay, army, or animation changes; those require a new Godot web export. Some artwork or text inside the packaged game may still use the earlier prototype label until that export.
+This is the October 13, 2026 weekly browser release. Publication is confirmed by the successful Pages workflow for the release commit. It includes the latest approved sprite integration, regular cavalry and first-pass light-horse action cycles, Lechaeum setup, campaign gates and Ps outcome changes.
 
 The repository contains the exported browser game, not the development workspace. The game pack is split into files below GitHub's individual-file limit. The Pages workflow reassembles it, verifies its SHA-256 checksum, and publishes the complete site. In repository Settings → Pages, the source is GitHub Actions.
 
 When replacing the web export, retain the **2D Proof of Concept** title in the browser page and web app manifest.
 
 Godot runtime: 4.7.2 stable. Game artwork and audio remain subject to their respective rights; publication does not grant a separate reuse license.
+
+## Player update
+
+[Read the October 13 player update](web/player-update-2026-10-13.md). After deployment, the [readable web update](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html) accompanies the game.
+
