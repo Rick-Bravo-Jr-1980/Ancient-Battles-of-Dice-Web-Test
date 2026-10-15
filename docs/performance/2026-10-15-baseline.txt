@@ -1,0 +1,108 @@
+ANCIENT BATTLES OF DICE — LOCAL DIAGNOSTICS BASELINE
+October 15, 2026 | Local development candidate; not a new live release
+
+REFERENCE AND MEASUREMENT
+October 13, 2026 source: d2049336256b60a7fcd7aa61c27b9876e3cb8f69
+October 13 browser: 51f947a512cb858240fb5fa32377fabe30c37ef5
+The October 13 release had no phase instrumentation. Its FPS, frame percentiles and crash rate are unavailable. This report establishes the first accepted instrumented baseline; it does not invent historical timings.
+Accepted workload: portrait-32-elements-v3
+32 Thermopylae day-three elements; synthetic simultaneous marching/recoil; camera transitions; four real melee resolutions with fixed test dice; victory and isolated save round-trip. Fixed dice exist only in excluded test scene.
+Independent wall-clock process-frame probe on every frame in both A/B builds; 1 ms histogram bins. These are frame intervals, not GPU execution timings. Production report samples one interval in eight.
+Godot FPS monitor sampled about once per second; transition samples may reflect the preceding second.
+Fresh browser contexts over localhost. OS filesystem/driver caches uncontrolled. Not a prediction of internet loading time.
+Median of per-run averages/quantiles. Samples and individual histograms retained. Three interleaved Chrome on/off runs; Edge/Firefox single compatibility/stress runs are not cross-browser benchmarks.
+
+CONFIGURATION
+{"headless": true, "viewport": [1280, 900], "device_pixel_ratio": 1, "host": {"os": "Windows 11 Home", "release": "10.0.26200", "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz", "logical_processors": 8, "memory_bytes": 8443080704}, "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"}
+ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)
+Dell power plan; battery status AC-connected, charge 100%. Background desktop app remained open. Separate isometric game was closed before accepted run set.
+
+MEASUREMENTS (median of three Chrome runs; FPS and milliseconds)
+Phase          FPS on / off      p50 on/off      p95 on/off      p99 on/off
+deployment      29.29/ 25.86        40.0/  40.0      55.0/  51.0    1000.0/1000.0
+movement        17.67/ 17.40        60.0/  61.0      71.0/  74.0      90.0/  96.0
+combat          13.32/ 12.79        67.0/  70.0     109.0/ 107.0     230.0/ 243.0
+camera          15.83/ 16.17        60.0/  60.0      69.0/  74.0      94.0/  87.0
+casualties      14.60/ 14.20        67.0/  67.0      75.0/  99.0     179.0/ 183.0
+
+BROWSER COVERAGE (single Edge/Firefox runs; different viewport means no cross-browser speed ranking)
+A percentile of 1000 ms means the >=1000 ms overflow bucket, not an exact one-second frame. Full per-run maximum intervals are retained in the measurements JSON. Deployment includes initial scene/asset preparation, whose long stalls appear with diagnostics both on and off.
+edge 155.0.4283.45: local startup 17.49s.
+  deployment: 21.62 FPS; p50/p95/p99 41/65/1000 ms.
+  movement: 16.83 FPS; p50/p95/p99 60/83/111 ms.
+  combat: 13.26 FPS; p50/p95/p99 68/104/226 ms.
+  camera: 16.33 FPS; p50/p95/p99 60/72/77 ms.
+  casualties: 15.00 FPS; p50/p95/p99 65/82/183 ms.
+firefox 158.0: local startup 17.34s.
+  deployment: 27.43 FPS; p50/p95/p99 47/63/1000 ms.
+  movement: 15.00 FPS; p50/p95/p99 71/96/128 ms.
+  combat: 10.77 FPS; p50/p95/p99 79/129/366 ms.
+  camera: 13.67 FPS; p50/p95/p99 69/81/325 ms.
+  casualties: 13.00 FPS; p50/p95/p99 75/83/200 ms.
+
+OBSERVED DIAGNOSTIC EVENTS
+{"chrome-1": {"confirmed_errors": 0, "warnings": 0, "suspected_stalls": 0}, "chrome-2": {"confirmed_errors": 0, "warnings": 0, "suspected_stalls": 0}, "chrome-5": {"confirmed_errors": 0, "warnings": 0, "suspected_stalls": 0}, "edge-6": {"confirmed_errors": 0, "warnings": 0, "suspected_stalls": 0}, "firefox-7": {"confirmed_errors": 0, "suspected_stalls": 0, "warnings": 0}}
+Reported Godot sample and JavaScript ingestion cost excludes bridge serialization, asynchronous storage and browser scheduling. Whole-build A/B comparison is the overhead check.
+
+Combined gameplay FPS: on 16.19, off 15.07; +7.44%.
+Local startup median: on 16.86s; off 16.58s.
+October 13 pack: 899,353,616 bytes. Instrumented fixture pack: 917,159,912 bytes. Fixture includes test resources and is never the production download.
+Normal report states unavailable until a supported user-triggered page/worker measurement. Harness CDP values, where present, describe JavaScript heap/backing storage only and are not total game/GPU/process memory.
+
+STABILITY AND CORRECTNESS
+{"all_completed_battles": true, "save_roundtrips": true, "outcome_digests": ["090f7befdf15a956fdca47b8c7896accfbb543e7c9e6e41ee02606097b409441"], "observed_browser_errors": 0}
+Injected JavaScript/rejection/resource faults and deliberately interrupted tabs are separate from normal gameplay errors. Missing heartbeats are suspected interruptions, never proof of a browser crash. No population crash-rate or zero-crash claim is made.
+Native checks passed: battle save/resume (dice stream, planned orders, profile isolation, interrupted-write fallback), profile/campaign unlocks, Miltiades rosters and Marathon deployment guard, current no-orders audio, completed audio fade regression.
+An older Greek cue test expects a prior cue sequence and fails its existing prepare-cue assertion; it needs maintenance. The relevant current behavior and new fade completion are covered by passing focused tests.
+The focused native audio fade fixture also reports three AudioStream/Playback objects at shutdown. Its functional assertion passes, but the synthetic test cleanup warning remains unresolved. No equivalent runtime error was observed in the measured browser battles.
+
+NORMAL GAME EXPORT
+Pack 914,614,244 bytes; full local site 953,933,548 bytes, below the 1,000,000,000-byte budget. Pack SHA-256: ae0d6282526b6c717d83f84ac7acff71d05f36b9dc7d81b3c965bb81b2641869.
+Whole candidate includes authorized sprite/tutorial work since October 13; package growth is not attributable solely to diagnostics. Reassembled with unchanged publishing tool and checksum verified.
+Chrome normal profile screen: 22.03s on localhost. Existing service-worker isolation fallback without server isolation headers: 34.35s. These are single smoke measurements, not internet-loading predictions.
+Settings > Local Diagnostic Report and actual JSON download passed in the normal game. Test profile name was absent from exported diagnostics. Zero nonlocal page requests and no browser errors were observed in this smoke check. Normal main scene and test-resource exclusions were restored and verified.
+
+IMPROVEMENTS
+Player-controlled local JSON export; bounded five-session history; no raw messages, profile names, save contents, URLs or automatic report uploads. Background timing excluded; unsupported storage falls back to in-memory reporting.
+Fixed an observed audio fade runtime error by clearing completed fade references. No dice, movement, AI, army lists, save format or campaign rules changed.
+
+REGRESSION REVIEW CANDIDATES
+[
+  {
+    "phase": "deployment",
+    "metric": "frame_ms_p95",
+    "baseline": 51,
+    "candidate": 55,
+    "change_percent": 7.84,
+    "classification": "candidate requiring repeated controlled confirmation"
+  },
+  {
+    "phase": "camera",
+    "metric": "frame_ms_p99",
+    "baseline": 87,
+    "candidate": 94,
+    "change_percent": 8.05,
+    "classification": "candidate requiring repeated controlled confirmation"
+  }
+]
+Changes over 5% FPS, or percentile increases over both 5% and 2 ms, trigger review. With short runs, a numeric difference does not establish causality. Favor neither improvements nor regressions based on one outlier.
+
+UNRESOLVED ISSUES / CORRECTIVE ACTIONS
+High-density rendering on Intel UHD 630 is a performance constraint. Profile formation rendering and asset memory before adding more simultaneous detail. Retest on the intended discrete GPU as a separate hardware baseline.
+No average FPS loss was observed; the positive difference is not attributed to diagnostics. Deployment p95 and camera p99 cross the review threshold. Their per-run ranges overlap (deployment off 49-54/on 49-56 ms; camera off 84-212/on 85-94 ms), but this short test does not rule out a tail-latency cost. Repeat these phases in the next release gate before declaring full performance acceptance. Functional acceptance passed; performance sign-off remains conditional.
+Final production export size and live internet startup must be checked during the weekly release. Keep the site below 1,000,000,000 bytes. Preserve the tested startup shell and split-pack workflow.
+One desktop, no Android measurements; no long-session endurance or forced OS/OOM crash proof.
+Earlier engine-delta and competing-game runs were exploratory and excluded from the accepted wall-clock baseline.
+No game-dev CLI available; these are direct Godot/browser harness measurements with SHA-256 receipts, not certified GPU timing evidence.
+
+PLAYER USE
+In the next instrumented build: Main Menu > Settings > Local Diagnostic Report > Export Diagnostic Report. Review/share the downloaded JSON only when you choose. Delete diagnostic history affects diagnostics only. A startup failure also leaves a Local Diagnostics button available.
+
+WEEKLY RELEASE PROCEDURE
+Follow docs/WEEKLY_RELEASE.md. Repeat the same workload/configuration; compare saved measurements with tools/diagnostics/compare_releases.py. Every release summary must name improvements, regression candidates, unresolved stability issues and corrective actions. Changed browser/GPU/workload means comparisons are provisional until matched reruns.
+
+IMPLEMENTATION
+Observer: src/application/local_diagnostics.gd and diagnostics_observer.gd. Optional application/menu/save hooks; independent IndexedDB collector in tools/diagnostics/local-diagnostics.js. Shell/export integration in prepare_shell.py and tools/prepare_web_release.py. Reproducible fixtures and acceptance checks in tests/diagnostics/.
+
+PUBLICATION
+This report documents local testing. The live game remains the previously published release until the scheduled export, final smoke checks and deployment succeed. Do not publish the benchmark fixture.

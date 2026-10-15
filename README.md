@@ -32,3 +32,9 @@ Godot runtime: 4.7.2 stable. Game artwork and audio remain subject to their resp
 
 [Read the October 13 player update](web/player-update-2026-10-13.md). After deployment, the [readable web update](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html) accompanies the game.
 
+## Local diagnostics baseline — October 15
+
+[Read the development baseline and acceptance report](docs/performance/2026-10-15-baseline.txt), with [structured results](docs/performance/2026-10-15-baseline.json) and [retained measurements](docs/performance/2026-10-15-measurements.json).
+
+The October 13 release lacked phase instrumentation. This is the first measured instrumented development build, not a claim about historical frame rates or a new live game release. Chrome, Edge and Firefox functional checks passed, including save/resume and player-controlled report export. No average FPS loss was observed in the repeated on/off comparison; two frame-time review flags remain before full performance sign-off. Reports stay on the player's device unless the player chooses to export and share them. The live game files remain unchanged by this documentation update.
+

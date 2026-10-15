@@ -1,0 +1,601 @@
+{
+  "schema": 1,
+  "date": "2026-10-15",
+  "version": "2026-10-15-diagnostics-baseline",
+  "baseline_kind": "first accepted measured instrumented build; October 13 release remains provenance/size reference",
+  "reference_release": {
+    "release_date": "2026-10-13",
+    "source_commit": "d2049336256b60a7fcd7aa61c27b9876e3cb8f69",
+    "browser_commit": "51f947a512cb858240fb5fa32377fabe30c37ef5",
+    "pack_sha256": "93b4bf109e1fcebdbd90c377de3fe5321edad68ed3620df412d3e7234b134800",
+    "site_bytes": 938649031,
+    "checks": [
+      "animation integration",
+      "walk timing",
+      "Ps outcomes",
+      "Act II progression",
+      "Lechaeum playtest",
+      "cavalry charge and march",
+      "light horse routing",
+      "battle autosave",
+      "Coronea roster and narration",
+      "Nemea playable flow and narration",
+      "split-pack reassembly checksum",
+      "browser profile screen with isolation headers",
+      "service-worker fallback profile screen without headers",
+      "GitHub Pages deployment success",
+      "public profile screen with no browser errors",
+      "public engine and game pack loaded",
+      "public notes match committed content"
+    ],
+    "status": "published and verified",
+    "completed_utc": "2026-10-14T05:26:09.032981+00:00",
+    "deployment_url": "https://github.com/Rick-Bravo-Jr-1980/Ancient-Battles-of-Dice-Web-Test/actions/runs/38516059089",
+    "play_url": "https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/",
+    "update_url": "https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html"
+  },
+  "reference_pack_bytes": 899353616,
+  "reference_phase_timings": "unavailable: October 13 had no phase instrumentation",
+  "workload": "portrait-32-elements-v3",
+  "method": {
+    "fixture": "32 Thermopylae day-three elements; synthetic simultaneous marching/recoil; camera transitions; four real melee resolutions with fixed test dice; victory and isolated save round-trip. Fixed dice exist only in excluded test scene.",
+    "frame_timing": "Independent wall-clock process-frame probe on every frame in both A/B builds; 1 ms histogram bins. These are frame intervals, not GPU execution timings. Production report samples one interval in eight.",
+    "fps": "Godot FPS monitor sampled about once per second; transition samples may reflect the preceding second.",
+    "load": "Fresh browser contexts over localhost. OS filesystem/driver caches uncontrolled. Not a prediction of internet loading time.",
+    "statistics": "Median of per-run averages/quantiles. Samples and individual histograms retained. Three interleaved Chrome on/off runs; Edge/Firefox single compatibility/stress runs are not cross-browser benchmarks.",
+    "power": "Dell power plan; battery status AC-connected, charge 100%. Background desktop app remained open. Separate isometric game was closed before accepted run set.",
+    "limitations": [
+      "One desktop, no Android measurements; no long-session endurance or forced OS/OOM crash proof.",
+      "Earlier engine-delta and competing-game runs were exploratory and excluded from the accepted wall-clock baseline.",
+      "No game-dev CLI available; these are direct Godot/browser harness measurements with SHA-256 receipts, not certified GPU timing evidence."
+    ]
+  },
+  "chrome_on": {
+    "runs": 3,
+    "workload": "portrait-32-elements-v3",
+    "browser": "chrome",
+    "browser_version": "155.0.8059.79",
+    "graphics": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        900
+      ],
+      "device_pixel_ratio": 1,
+      "host": {
+        "os": "Windows 11 Home",
+        "release": "10.0.26200",
+        "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "logical_processors": 8,
+        "memory_bytes": 8443080704
+      },
+      "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"
+    },
+    "loading_ms_median": 16863,
+    "package_bytes": 917159912,
+    "phases": {
+      "deployment": {
+        "average_fps": 29.285714285714285,
+        "min_fps": 17,
+        "frame_ms_p50": 40,
+        "frame_ms_p95": 55,
+        "frame_ms_p99": 1000,
+        "samples": 423
+      },
+      "movement": {
+        "average_fps": 17.666666666666668,
+        "min_fps": 16,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 71,
+        "frame_ms_p99": 90,
+        "samples": 296
+      },
+      "combat": {
+        "average_fps": 13.323529411764707,
+        "min_fps": 5,
+        "frame_ms_p50": 67,
+        "frame_ms_p95": 109,
+        "frame_ms_p99": 230,
+        "samples": 1396
+      },
+      "camera": {
+        "average_fps": 15.833333333333334,
+        "min_fps": 14,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 69,
+        "frame_ms_p99": 94,
+        "samples": 293
+      },
+      "casualties": {
+        "average_fps": 14.6,
+        "min_fps": 13,
+        "frame_ms_p50": 67,
+        "frame_ms_p95": 75,
+        "frame_ms_p99": 179,
+        "samples": 224
+      }
+    }
+  },
+  "chrome_off": {
+    "runs": 3,
+    "workload": "portrait-32-elements-v3",
+    "browser": "chrome",
+    "browser_version": "155.0.8059.79",
+    "graphics": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        900
+      ],
+      "device_pixel_ratio": 1,
+      "host": {
+        "os": "Windows 11 Home",
+        "release": "10.0.26200",
+        "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "logical_processors": 8,
+        "memory_bytes": 8443080704
+      },
+      "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"
+    },
+    "loading_ms_median": 16583,
+    "package_bytes": 917159912,
+    "phases": {
+      "deployment": {
+        "average_fps": 25.857142857142858,
+        "min_fps": 6,
+        "frame_ms_p50": 40,
+        "frame_ms_p95": 51,
+        "frame_ms_p99": 1000,
+        "samples": 424
+      },
+      "movement": {
+        "average_fps": 17.4,
+        "min_fps": 14,
+        "frame_ms_p50": 61,
+        "frame_ms_p95": 74,
+        "frame_ms_p99": 96,
+        "samples": 285
+      },
+      "combat": {
+        "average_fps": 12.794117647058824,
+        "min_fps": 5,
+        "frame_ms_p50": 70,
+        "frame_ms_p95": 107,
+        "frame_ms_p99": 243,
+        "samples": 1380
+      },
+      "camera": {
+        "average_fps": 16.166666666666668,
+        "min_fps": 15,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 74,
+        "frame_ms_p99": 87,
+        "samples": 300
+      },
+      "casualties": {
+        "average_fps": 14.2,
+        "min_fps": 11,
+        "frame_ms_p50": 67,
+        "frame_ms_p95": 99,
+        "frame_ms_p99": 183,
+        "samples": 208
+      }
+    }
+  },
+  "edge_on": {
+    "runs": 1,
+    "workload": "portrait-32-elements-v3",
+    "browser": "edge",
+    "browser_version": "155.0.4283.45",
+    "graphics": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        900
+      ],
+      "device_pixel_ratio": 1,
+      "host": {
+        "os": "Windows 11 Home",
+        "release": "10.0.26200",
+        "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "logical_processors": 8,
+        "memory_bytes": 8443080704
+      },
+      "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"
+    },
+    "loading_ms_median": 17486,
+    "package_bytes": 917159912,
+    "phases": {
+      "deployment": {
+        "average_fps": 21.625,
+        "min_fps": 6,
+        "frame_ms_p50": 41,
+        "frame_ms_p95": 65,
+        "frame_ms_p99": 1000,
+        "samples": 127
+      },
+      "movement": {
+        "average_fps": 16.833333333333332,
+        "min_fps": 14,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 83,
+        "frame_ms_p99": 111,
+        "samples": 97
+      },
+      "combat": {
+        "average_fps": 13.264705882352942,
+        "min_fps": 6,
+        "frame_ms_p50": 68,
+        "frame_ms_p95": 104,
+        "frame_ms_p99": 226,
+        "samples": 469
+      },
+      "camera": {
+        "average_fps": 16.333333333333332,
+        "min_fps": 15,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 72,
+        "frame_ms_p99": 77,
+        "samples": 100
+      },
+      "casualties": {
+        "average_fps": 15.0,
+        "min_fps": 14,
+        "frame_ms_p50": 65,
+        "frame_ms_p95": 82,
+        "frame_ms_p99": 183,
+        "samples": 76
+      }
+    }
+  },
+  "firefox_on": {
+    "runs": 1,
+    "workload": "portrait-32-elements-v3",
+    "browser": "firefox",
+    "browser_version": "158.0",
+    "graphics": null,
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        815
+      ],
+      "network": "localhost"
+    },
+    "loading_ms_median": 17342,
+    "package_bytes": 917159912,
+    "phases": {
+      "deployment": {
+        "average_fps": 27.428571428571427,
+        "min_fps": 11,
+        "frame_ms_p50": 47,
+        "frame_ms_p95": 63,
+        "frame_ms_p99": 1000,
+        "samples": 120
+      },
+      "movement": {
+        "average_fps": 15.0,
+        "min_fps": 13,
+        "frame_ms_p50": 71,
+        "frame_ms_p95": 96,
+        "frame_ms_p99": 128,
+        "samples": 81
+      },
+      "combat": {
+        "average_fps": 10.771428571428572,
+        "min_fps": 3,
+        "frame_ms_p50": 79,
+        "frame_ms_p95": 129,
+        "frame_ms_p99": 366,
+        "samples": 406
+      },
+      "camera": {
+        "average_fps": 13.666666666666666,
+        "min_fps": 11,
+        "frame_ms_p50": 69,
+        "frame_ms_p95": 81,
+        "frame_ms_p99": 325,
+        "samples": 87
+      },
+      "casualties": {
+        "average_fps": 13.0,
+        "min_fps": 12,
+        "frame_ms_p50": 75,
+        "frame_ms_p95": 83,
+        "frame_ms_p99": 200,
+        "samples": 66
+      }
+    }
+  },
+  "overhead_comparison": {
+    "improvements": [
+      {
+        "phase": "deployment",
+        "metric": "average_fps",
+        "baseline": 25.857142857142858,
+        "candidate": 29.285714285714285,
+        "change_percent": 13.26,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "movement",
+        "metric": "frame_ms_p99",
+        "baseline": 96,
+        "candidate": 90,
+        "change_percent": -6.25,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "combat",
+        "metric": "frame_ms_p99",
+        "baseline": 243,
+        "candidate": 230,
+        "change_percent": -5.35,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "camera",
+        "metric": "frame_ms_p95",
+        "baseline": 74,
+        "candidate": 69,
+        "change_percent": -6.76,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "casualties",
+        "metric": "frame_ms_p95",
+        "baseline": 99,
+        "candidate": 75,
+        "change_percent": -24.24,
+        "classification": "candidate requiring repeated controlled confirmation"
+      }
+    ],
+    "regressions": [
+      {
+        "phase": "deployment",
+        "metric": "frame_ms_p95",
+        "baseline": 51,
+        "candidate": 55,
+        "change_percent": 7.84,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "camera",
+        "metric": "frame_ms_p99",
+        "baseline": 87,
+        "candidate": 94,
+        "change_percent": 8.05,
+        "classification": "candidate requiring repeated controlled confirmation"
+      }
+    ],
+    "unresolved_stability_issues": [],
+    "recommended_corrective_actions": [
+      "Repeat the affected phase with matched hardware, viewport, browser, rendering path, power state and workload before attributing a regression. Investigate persistent differences before publishing."
+    ],
+    "comparability": "matching"
+  },
+  "performance_review_status": "review required",
+  "gameplay_fps_median": {
+    "on": 16.189655172413794,
+    "off": 15.068965517241379,
+    "change_percent": 7.437070938215109
+  },
+  "checks": {
+    "chromium_compatibility": [
+      {
+        "browser": "chrome",
+        "tests": [
+          "runtime errors, rejection, resource failure, privacy redaction",
+          "player-controlled JSON download",
+          "combat tab closure recovered as interruption, not crash",
+          "normal exit retained",
+          "five-session retention",
+          "active second tab is not mislabeled as interrupted",
+          "no telemetry transmission",
+          "storage denial degrades to in-memory reporting"
+        ],
+        "status": "passed",
+        "version": "155.0.8059.79"
+      },
+      {
+        "browser": "edge",
+        "tests": [
+          "runtime errors, rejection, resource failure, privacy redaction",
+          "player-controlled JSON download",
+          "combat tab closure recovered as interruption, not crash",
+          "normal exit retained",
+          "five-session retention",
+          "active second tab is not mislabeled as interrupted",
+          "no telemetry transmission",
+          "storage denial degrades to in-memory reporting"
+        ],
+        "status": "passed",
+        "version": "155.0.4283.45"
+      }
+    ],
+    "firefox_compatibility": {
+      "browser": "firefox",
+      "tests": [
+        "runtime errors, rejection, failed resource and privacy filtering",
+        "player-controlled JSON download",
+        "interrupted combat recovery",
+        "normal exit retained",
+        "bounded five-session history",
+        "live second tab distinguished",
+        "storage denial tolerated",
+        "32-element battle, camera, casualties and save round-trip"
+      ],
+      "status": "passed",
+      "version": "158.0",
+      "stage": "error capture"
+    },
+    "restart_acceptance": {
+      "tests": [
+        "saved battle survives page restart; controller resumes position, PIPs and exact next dice result",
+        "real game tab closed in combat; next launch reports interruption, not a confirmed crash",
+        "second restart preserves saved controller and dice stream; fixture cleans up only its own save",
+        "blocked engine/pack startup recorded; report remains downloadable"
+      ],
+      "status": "passed"
+    },
+    "production_smoke": {
+      "status": "passed",
+      "title": "Ancient Battles of Dice \u00e2\u20ac\u201d 2D Proof of Concept",
+      "browser": "155.0.8059.79",
+      "loading_ms": 22033,
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      },
+      "errors": [],
+      "nonlocal_requests": 0,
+      "settings_button": true,
+      "download": true,
+      "profile_name_excluded": true,
+      "memory": {
+        "value": null,
+        "unit": "bytes",
+        "scope": null,
+        "reason": "Reliable total browser/game memory is not exposed by this browser. No estimate substituted."
+      },
+      "package_bytes": 914614244
+    },
+    "production_isolation_fallback": {
+      "isolated": true,
+      "phase": "profile",
+      "loading_ms": 34350,
+      "errors": [],
+      "status": "passed"
+    }
+  },
+  "correctness": {
+    "all_completed_battles": true,
+    "save_roundtrips": true,
+    "outcome_digests": [
+      "090f7befdf15a956fdca47b8c7896accfbb543e7c9e6e41ee02606097b409441"
+    ],
+    "observed_browser_errors": 0
+  },
+  "memory": "Normal report states unavailable until a supported user-triggered page/worker measurement. Harness CDP values, where present, describe JavaScript heap/backing storage only and are not total game/GPU/process memory.",
+  "integrity": {
+    "project.godot": "9879d4145afa81fe8904e200e65b67f5b0b8e4065c67e4d01dab4cb0291086f6",
+    "src/application/local_diagnostics.gd": "1bec6a6f686c6fb508ab6fb5fba84959719cab49ad4f2bf2925ceceeb7ba5e13",
+    "src/application/diagnostics_observer.gd": "1695f8921b4a460eeea84d8831e8e4e78838784afa6cf3ecc2d6a060d9a50c00",
+    "tools/diagnostics/local-diagnostics.js": "cc597b6300ea19eec41003021fdb6ed3f1ea2d4aba8e78bf2526bc1033ac8d00",
+    "tests/diagnostics/benchmark.gd": "b5190ca2ee28926becea4a81710c75ab406bb3051759822468bb94935732d9c9",
+    "tests/diagnostics/acceptance.gd": "1e02cee94b83cc0a0ccf0a6a264153803ab7c52b3b1776bdf361d40ae07b7e0e",
+    "tools/prepare_web_release.py": "734da9a76b9c87dbb84342932fab798cb3757914a30f17290f78c007dd09defc",
+    "tools/diagnostics/prepare_shell.py": "7a6dc3f0a1d8d20221eba46a764e86328edb356edcfb9d4982f5aa901c4a7fc4",
+    "work/diagnostics-web/index.pck": "fc4b5d96b97068539d74226b500445990076c79455a46efe42761bb06566972d"
+  },
+  "measurements_sha256": "fee55fcd78d14f9fd64aa8c66c4d6e0fa64cac15eb694210e7fadf6746a76cf5",
+  "observed_diagnostic_events": {
+    "chrome-1": {
+      "confirmed_errors": 0,
+      "warnings": 0,
+      "suspected_stalls": 0
+    },
+    "chrome-2": {
+      "confirmed_errors": 0,
+      "warnings": 0,
+      "suspected_stalls": 0
+    },
+    "chrome-5": {
+      "confirmed_errors": 0,
+      "warnings": 0,
+      "suspected_stalls": 0
+    },
+    "edge-6": {
+      "confirmed_errors": 0,
+      "warnings": 0,
+      "suspected_stalls": 0
+    },
+    "firefox-7": {
+      "confirmed_errors": 0,
+      "suspected_stalls": 0,
+      "warnings": 0
+    }
+  },
+  "observer_cost_scope": "Reported Godot sample and JavaScript ingestion cost excludes bridge serialization, asynchronous storage and browser scheduling. Whole-build A/B comparison is the overhead check.",
+  "observer_costs": [
+    {
+      "browser": "chrome",
+      "cost": {
+        "js_ms": 14.785000085830688,
+        "js_calls": 69,
+        "godot_sample_us": 18199,
+        "godot_samples": 130
+      }
+    },
+    {
+      "browser": "chrome",
+      "cost": {
+        "js_ms": 10.064999863505363,
+        "js_calls": 70,
+        "godot_sample_us": 19000,
+        "godot_samples": 126
+      }
+    },
+    {
+      "browser": "chrome",
+      "cost": {
+        "js_ms": 11.224999964237213,
+        "js_calls": 71,
+        "godot_sample_us": 31514,
+        "godot_samples": 125
+      }
+    },
+    {
+      "browser": "edge",
+      "cost": {
+        "js_ms": 7.2250000685453415,
+        "js_calls": 71,
+        "godot_sample_us": 18257,
+        "godot_samples": 127
+      }
+    },
+    {
+      "browser": "firefox",
+      "cost": {
+        "godot_sample_us": 8085,
+        "godot_samples": 111,
+        "js_calls": 71,
+        "js_ms": 17.399999999947113
+      }
+    }
+  ],
+  "production_export": {
+    "version": "2026-10-15-diagnostics-local",
+    "godot": "4.7.2",
+    "pack_bytes": 914614244,
+    "pack_sha256": "ae0d6282526b6c717d83f84ac7acff71d05f36b9dc7d81b3c965bb81b2641869",
+    "pack_parts": [
+      "index.pck.part000",
+      "index.pck.part001",
+      "index.pck.part002",
+      "index.pck.part003",
+      "index.pck.part004",
+      "index.pck.part005",
+      "index.pck.part006",
+      "index.pck.part007",
+      "index.pck.part008",
+      "index.pck.part009",
+      "index.pck.part010",
+      "index.pck.part011",
+      "index.pck.part012",
+      "index.pck.part013",
+      "index.pck.part014",
+      "index.pck.part015",
+      "index.pck.part016",
+      "index.pck.part017",
+      "index.pck.part018"
+    ],
+    "site_bytes": 953933548,
+    "pack_change_from_october_13_bytes": 15260628,
+    "note": "Whole candidate includes authorized sprite/tutorial work since October 13; package growth is not attributable solely to diagnostics. Reassembled with unchanged publishing tool and checksum verified."
+  }
+}
