@@ -110,10 +110,17 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
+		<button id="startup-diagnostics" style="position:fixed;bottom:12px;right:12px;z-index:9999;padding:8px" onclick="window.ABDiagnostics?.openPanel()">Local Diagnostics</button>
+<script src="local-diagnostics.js"></script>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":899353616,"index.wasm":38820072},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":958448168,"index.wasm":38820072},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = true;
+/* ABD diagnostics begin */
+window.ABDiagnostics?.configure({"version": "2026-10-21", "date": "2026-10-21", "package_bytes": 958448168, "wasm_bytes": 38820072});
+GODOT_CONFIG.onPrintError = function(...args) { window.ABDiagnostics?.godotError(args.join(' ')); console.error(...args); };
+GODOT_CONFIG.onExit = function(code) { window.ABDiagnostics?.finish(code === 0 ? 'normal_exit' : 'engine_exit_error'); };
+/* ABD diagnostics end */
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {
@@ -151,6 +158,8 @@ const engine = new Engine(GODOT_CONFIG);
 	}
 
 	function displayFailureNotice(err) {
+        window.ABDiagnostics?.event('startup_failure');
+        if (/wasm|WebAssembly/i.test(String(err))) window.ABDiagnostics?.event('wasm_failure');
 		console.error(err);
 		if (err instanceof Error) {
 			setStatusNotice(err.message);
@@ -170,7 +179,7 @@ const engine = new Engine(GODOT_CONFIG);
 	if (missing.length !== 0) {
 		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
 			setStatusMode('notice');
-			setStatusNotice('Preparing browser support. The first game download is about 938 MB.');
+			setStatusNotice('Preparing browser support. The first game download is about 997 MB.');
 			const retryKey = 'godot-isolation-reload';
 			const prepare = async () => {
 				await navigator.serviceWorker.register(GODOT_CONFIG.serviceWorker);
@@ -208,6 +217,8 @@ const engine = new Engine(GODOT_CONFIG);
 			},
 		}).then(() => {
 			setStatusMode('hidden');
+            window.ABDiagnostics?.gameReady();
+            document.getElementById('startup-diagnostics')?.remove();
             document.title = 'Ancient Battles of Dice — 2D Proof of Concept';
 		}, displayFailureNotice);
 	}

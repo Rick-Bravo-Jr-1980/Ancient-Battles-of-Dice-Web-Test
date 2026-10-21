@@ -1,0 +1,45 @@
+ANCIENT BATTLES OF DICE — OCTOBER 21, 2026 RELEASE VALIDATION
+
+STATUS: Functional/browser and packaging checks passed. Diagnostics performance acceptance remains conditional; this is not a claim of full performance validation.
+
+REFERENCE AND COMPARABILITY
+October 13 was the original release/package reference and lacked phase instrumentation. October 15 remains the first measured instrumented baseline. No historical FPS or crash rate is invented.
+The current fixture is portrait-32-elements-v4. The five measured phase groups and first four measured melees are retained. Current mounted flee rules leave two destroyed enemies after those melees, so a separate victory phase resolves two further real foot combats before save/resume. The benchmark never assigns winner/losses directly. The previous v3 fixture incorrectly expected victory after four melees; its failed exploratory runs are excluded from accepted timing data.
+Browser patch versions also changed. The automated historical comparison is configuration_changed, not zero regressions or a matched performance improvement. Do not replace or relabel the October 15 baseline.
+
+METHOD AND CONFIGURATION
+{"headless": true, "viewport": [1280, 900], "device_pixel_ratio": 1, "host": {"os": "Windows 11 Home", "release": "10.0.26200", "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz", "logical_processors": 8, "memory_bytes": 8443080704}, "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"}
+ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)
+Five interleaved Chrome diagnostics-on/off runs per mode (initial three pairs plus two review pairs), one Edge run, and one Firefox run. Current Chrome 155.0.8059.85, Edge 155.0.4283.62, Firefox 158.0. Native tests/export jobs were not run concurrently with these timed browser runs. OS caches and desktop/background scheduling were uncontrolled; power state was not captured.
+Every-frame wall-clock process interval probe runs in both A/B modes; production diagnostics samples one interval in eight. FPS monitor samples can straddle phase boundaries. Quantiles below are medians of per-run quantiles, not pooled frame measurements. A 1000 ms quantile denotes the >=1000 ms overflow bucket. These are not GPU execution timings.
+
+CHROME MEDIANS — DIAGNOSTICS ON / OFF
+Phase        Avg FPS      Min FPS      p50 ms      p95 ms      p99 ms
+deployment   27.29/24.00    11/4         41/41        48/58       1000/1000
+movement     16.83/16.67    14/15         61/61        85/69       263/197
+combat       13.74/13.43    3/4         59/60        97/99       594/579
+camera       15.33/16.33    10/16         61/59        79/70       516/78
+casualties   13.20/14.00    6/12         65/65        78/85       182/553
+
+LOADING AND SIZE
+Normal player export: 958,448,168-byte pack. SHA-256 997714df1d608ba21846dc7f6fb9336847fa5632348cf843fef5dd2e093529ff. Final assembled-site byte count is retained in the packaging receipt.
+Unfiltered local pack: 1,171,353,848 bytes. Saving: 212,905,680 bytes (18.2%). October 13 published pack: 899,353,616 bytes; current pack is 59,094,552 bytes (6.57%) larger because subsequent approved additions are included. No retained artwork was downscaled for this reduction.
+Normal browser startup passed with isolation headers and with the Pages-style service-worker fallback. The isolated fallback run loaded in 49.867 seconds on localhost with a fresh browser context; filesystem cache state was uncontrolled. A 327.423-second headers run overlapped an export and is retained as startup evidence only, excluded from clean performance conclusions.
+Test-only fixture package: 961,072,976 bytes; never published. Chrome fixture loading medians: on 22.474s / off 23.940s. These are not internet download predictions.
+
+MEMORY
+Observed Chromium CDP JavaScript heap used size: 18,706,148–28,425,508 bytes. This excludes most WASM and GPU memory; it is not total game/browser memory. Reliable total memory is unavailable. Firefox does not supply this CDP measure.
+
+IMPROVEMENTS, REGRESSION CANDIDATES AND ACTIONS
+Confirmed improvement: 18.2% smaller than the unfiltered local package while retaining all 168 audited live portrait/vase paths and 51 narration-manifest passages. All 145 audited source-only assets are absent from the normal pack.
+No causal historical speed improvement is claimed. Current on/off medians favor diagnostics for deployment and some casualty frame-time measures, but movement p95/p99, camera FPS/p95/p99 and casualty average FPS cross the review threshold. Repeats did not clear all flags. Camera p99 is particularly variable (516 ms on / 78 ms off median); overall gameplay correctness does not clear this timing concern.
+Corrective action: profile the synchronous Godot-to-browser reporting bridge and persistence scheduling, then repeat longer movement/camera/casualty phases with matched browser, GPU, power state and cache conditions. Preserve these results and the October 15 baseline. Do not advertise diagnostics as fully performance-validated until the tail-latency flags are resolved.
+Dense formations remain slow on Intel UHD 630 (roughly 13–17 FPS during the measured active phases). Test a discrete GPU separately; do not combine hardware baselines. The site has only about 2.2 MB hosting headroom, so every addition needs a fresh size check.
+
+STABILITY AND CORRECTNESS
+All 12 current browser battle runs passed, with identical outcome digests and successful isolated save round-trips. Chromium runs recorded zero JavaScript/console errors, zero nonlocal requests and zero confirmed errors/warnings/suspected stalls in collected reports. Firefox functional acceptance passed eight checks including benchmark/save completion. Injected errors and deliberately interrupted tabs in diagnostics tests are not spontaneous game crashes.
+Chrome/Edge collector checks and Firefox error capture, privacy filtering, player-controlled export, interruption/normal-exit handling, bounded history and unavailable-storage behavior passed. Diagnostics use a separate local IndexedDB and do not transmit reports. No zero-crash or long-session stability claim is made; Android, endurance and forced OS/OOM-crash behavior are untested.
+Native regression checks passed for live assets, mounted/Psiloi outcomes, charge ranges, campaign gates, Lechaeum, save/resume, II/7–II/12 coverage, I/52 animation/ready/facing/light troops, recorded voices and lesson narration/demonstrations. Twenty full scripted lesson scenarios passed (ten each for Lessons 1 and 2). Scripted headless checks are not a substitute for player feedback. Lessons 3 and 4 have not been tested or updated.
+
+PUBLICATION
+This report accompanies the approved-content build. GitHub Pages deployment is verified separately for the release commit. A successful deployment does not resolve the conditional performance assessment above.

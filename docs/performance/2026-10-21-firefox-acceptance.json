@@ -1,0 +1,16 @@
+{
+  "browser": "firefox",
+  "tests": [
+    "runtime errors, rejection, failed resource and privacy filtering",
+    "player-controlled JSON download",
+    "interrupted combat recovery",
+    "normal exit retained",
+    "bounded five-session history",
+    "live second tab distinguished",
+    "storage denial tolerated",
+    "32-element battle, camera, casualties and save round-trip"
+  ],
+  "status": "passed",
+  "version": "158.0",
+  "stage": "error capture"
+}

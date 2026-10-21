@@ -1,0 +1,353 @@
+{
+  "runs": 11,
+  "all_passed": true,
+  "digests": [
+    "090f7befdf15a956fdca47b8c7896accfbb543e7c9e6e41ee02606097b409441"
+  ],
+  "save_roundtrips": true,
+  "browser_errors": 0,
+  "nonlocal_requests": 0,
+  "on": {
+    "runs": 5,
+    "workload": "portrait-32-elements-v4",
+    "browser": "chrome",
+    "browser_version": "155.0.8059.85",
+    "graphics": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        900
+      ],
+      "device_pixel_ratio": 1,
+      "host": {
+        "os": "Windows 11 Home",
+        "release": "10.0.26200",
+        "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "logical_processors": 8,
+        "memory_bytes": 8443080704
+      },
+      "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"
+    },
+    "loading_ms_median": 22474,
+    "package_bytes": 961072976,
+    "phases": {
+      "deployment": {
+        "average_fps": 27.285714285714285,
+        "min_fps": 11,
+        "frame_ms_p50": 41,
+        "frame_ms_p95": 48,
+        "frame_ms_p99": 1000,
+        "samples": 712
+      },
+      "movement": {
+        "average_fps": 16.833333333333332,
+        "min_fps": 14,
+        "frame_ms_p50": 61,
+        "frame_ms_p95": 85,
+        "frame_ms_p99": 263,
+        "samples": 472
+      },
+      "combat": {
+        "average_fps": 13.742857142857142,
+        "min_fps": 3,
+        "frame_ms_p50": 59,
+        "frame_ms_p95": 97,
+        "frame_ms_p99": 594,
+        "samples": 2438
+      },
+      "camera": {
+        "average_fps": 15.333333333333334,
+        "min_fps": 10,
+        "frame_ms_p50": 61,
+        "frame_ms_p95": 79,
+        "frame_ms_p99": 516,
+        "samples": 479
+      },
+      "casualties": {
+        "average_fps": 13.2,
+        "min_fps": 6,
+        "frame_ms_p50": 65,
+        "frame_ms_p95": 78,
+        "frame_ms_p99": 182,
+        "samples": 374
+      }
+    }
+  },
+  "off": {
+    "runs": 5,
+    "workload": "portrait-32-elements-v4",
+    "browser": "chrome",
+    "browser_version": "155.0.8059.85",
+    "graphics": "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00003E9B) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "configuration": {
+      "headless": true,
+      "viewport": [
+        1280,
+        900
+      ],
+      "device_pixel_ratio": 1,
+      "host": {
+        "os": "Windows 11 Home",
+        "release": "10.0.26200",
+        "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+        "logical_processors": 8,
+        "memory_bytes": 8443080704
+      },
+      "network": "localhost; fresh browser context; OS filesystem cache uncontrolled"
+    },
+    "loading_ms_median": 23940,
+    "package_bytes": 961072976,
+    "phases": {
+      "deployment": {
+        "average_fps": 24.0,
+        "min_fps": 4,
+        "frame_ms_p50": 41,
+        "frame_ms_p95": 58,
+        "frame_ms_p99": 1000,
+        "samples": 683
+      },
+      "movement": {
+        "average_fps": 16.666666666666668,
+        "min_fps": 15,
+        "frame_ms_p50": 61,
+        "frame_ms_p95": 69,
+        "frame_ms_p99": 197,
+        "samples": 483
+      },
+      "combat": {
+        "average_fps": 13.428571428571429,
+        "min_fps": 4,
+        "frame_ms_p50": 60,
+        "frame_ms_p95": 99,
+        "frame_ms_p99": 579,
+        "samples": 2433
+      },
+      "camera": {
+        "average_fps": 16.333333333333332,
+        "min_fps": 16,
+        "frame_ms_p50": 59,
+        "frame_ms_p95": 70,
+        "frame_ms_p99": 78,
+        "samples": 501
+      },
+      "casualties": {
+        "average_fps": 14.0,
+        "min_fps": 12,
+        "frame_ms_p50": 65,
+        "frame_ms_p95": 85,
+        "frame_ms_p99": 553,
+        "samples": 373
+      }
+    }
+  },
+  "baseline_comparison": {
+    "improvements": [],
+    "regressions": [],
+    "unresolved_stability_issues": [
+      "workload differs; rerun both builds in the same environment.",
+      "browser_version differs; rerun both builds in the same environment."
+    ],
+    "recommended_corrective_actions": [],
+    "comparability": "configuration_changed"
+  },
+  "diagnostics_on_off": {
+    "improvements": [
+      {
+        "phase": "deployment",
+        "metric": "average_fps",
+        "baseline": 24.0,
+        "candidate": 27.285714285714285,
+        "change_percent": 13.69,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "deployment",
+        "metric": "frame_ms_p95",
+        "baseline": 58,
+        "candidate": 48,
+        "change_percent": -17.24,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "casualties",
+        "metric": "frame_ms_p95",
+        "baseline": 85,
+        "candidate": 78,
+        "change_percent": -8.24,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "casualties",
+        "metric": "frame_ms_p99",
+        "baseline": 553,
+        "candidate": 182,
+        "change_percent": -67.09,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "metric": "loading_ms_median",
+        "baseline": 23940,
+        "candidate": 22474,
+        "change_percent": -6.12,
+        "classification": "candidate requiring repeated controlled confirmation"
+      }
+    ],
+    "regressions": [
+      {
+        "phase": "movement",
+        "metric": "frame_ms_p95",
+        "baseline": 69,
+        "candidate": 85,
+        "change_percent": 23.19,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "movement",
+        "metric": "frame_ms_p99",
+        "baseline": 197,
+        "candidate": 263,
+        "change_percent": 33.5,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "camera",
+        "metric": "average_fps",
+        "baseline": 16.333333333333332,
+        "candidate": 15.333333333333334,
+        "change_percent": -6.12,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "camera",
+        "metric": "frame_ms_p95",
+        "baseline": 70,
+        "candidate": 79,
+        "change_percent": 12.86,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "camera",
+        "metric": "frame_ms_p99",
+        "baseline": 78,
+        "candidate": 516,
+        "change_percent": 561.54,
+        "classification": "candidate requiring repeated controlled confirmation"
+      },
+      {
+        "phase": "casualties",
+        "metric": "average_fps",
+        "baseline": 14.0,
+        "candidate": 13.2,
+        "change_percent": -5.71,
+        "classification": "candidate requiring repeated controlled confirmation"
+      }
+    ],
+    "unresolved_stability_issues": [],
+    "recommended_corrective_actions": [
+      "Repeat the affected phase with matched hardware, viewport, browser, rendering path, power state and workload before attributing a regression. Investigate persistent differences before publishing."
+    ],
+    "comparability": "matching"
+  },
+  "events": [
+    {
+      "run": 0,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 1,
+      "mode": "off",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 2,
+      "mode": "off",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 3,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 4,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 5,
+      "mode": "off",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 6,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 7,
+      "mode": "off",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 8,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 9,
+      "mode": "on",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    },
+    {
+      "run": 10,
+      "mode": "off",
+      "events": {
+        "confirmed_errors": 0,
+        "warnings": 0,
+        "suspected_stalls": 0
+      }
+    }
+  ]
+}

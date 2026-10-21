@@ -20,7 +20,9 @@ This release includes the deployment-drag performance fix and packaged-resource 
 
 ## Release status and publishing
 
-This is the October 13, 2026 weekly browser release. Publication is confirmed by the successful Pages workflow for the release commit. It includes the latest approved sprite integration, regular cavalry and first-pass light-horse action cycles, Lechaeum setup, campaign gates and Ps outcome changes.
+This is the October 21, 2026 approved-content browser build. The Pages workflow for the release commit determines its deployment status. It includes the revised first two lessons, recorded narration, integrated I/52 and II/7–II/12 animations, current charge/mounted rules and Lechaeum. Lessons 3 and 4 have not been tested or updated.
+
+The 958.4 MB resource package is 18.2% smaller than the unfiltered local build, while retaining current player content. It is larger than October 13 because of subsequent approved additions. Diagnostics stay local; their performance assessment remains conditional, with unresolved movement/camera timing review flags. See the [October 21 validation report](docs/performance/2026-10-21-release.txt) and [retained measurements](docs/performance/2026-10-21-measurements.json).
 
 The repository contains the exported browser game, not the development workspace. The game pack is split into files below GitHub's individual-file limit. The Pages workflow reassembles it, verifies its SHA-256 checksum, and publishes the complete site. In repository Settings → Pages, the source is GitHub Actions.
 
@@ -30,11 +32,11 @@ Godot runtime: 4.7.2 stable. Game artwork and audio remain subject to their resp
 
 ## Player update
 
-[Read the October 13 player update](web/player-update-2026-10-13.md). After deployment, the [readable web update](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html) accompanies the game.
+[Read the October 21 player update](web/player-update-2026-10-21.md). After deployment, the [readable web update](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html) accompanies the game. The [October 13 update](web/player-update-2026-10-13.md) is retained for history.
 
 ## Local diagnostics baseline — October 15
 
 [Read the development baseline and acceptance report](docs/performance/2026-10-15-baseline.txt), with [structured results](docs/performance/2026-10-15-baseline.json) and [retained measurements](docs/performance/2026-10-15-measurements.json).
 
-The October 13 release lacked phase instrumentation. This is the first measured instrumented development build, not a claim about historical frame rates or a new live game release. Chrome, Edge and Firefox functional checks passed, including save/resume and player-controlled report export. No average FPS loss was observed in the repeated on/off comparison; two frame-time review flags remain before full performance sign-off. Reports stay on the player's device unless the player chooses to export and share them. The live game files remain unchanged by this documentation update.
+The October 13 release lacked phase instrumentation. October 15 is the first measured instrumented development baseline, not a claim about historical frame rates. Its functional checks passed and performance acceptance was conditional. Keep that baseline distinct from the October 21 results above; changed browser versions and the updated victory fixture limit direct timing comparisons. Reports stay on the player's device unless the player chooses to export and share them.
 

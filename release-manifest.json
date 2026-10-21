@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-13",
+  "version": "2026-10-21",
   "godot": "4.7.2",
-  "pack_bytes": 899353616,
-  "pack_sha256": "93b4bf109e1fcebdbd90c377de3fe5321edad68ed3620df412d3e7234b134800",
+  "pack_bytes": 958448168,
+  "pack_sha256": "997714df1d608ba21846dc7f6fb9336847fa5632348cf843fef5dd2e093529ff",
   "pack_parts": [
     "index.pck.part000",
     "index.pck.part001",
@@ -21,6 +21,10 @@
     "index.pck.part014",
     "index.pck.part015",
     "index.pck.part016",
-    "index.pck.part017"
-  ]
+    "index.pck.part017",
+    "index.pck.part018",
+    "index.pck.part019"
+  ],
+  "source_commit": "6ea70cc141b5bacbbb58fc2eeca1b394ff7d7ad9",
+  "performance_assessment": "conditional; see docs/performance/2026-10-21-release.txt"
 }

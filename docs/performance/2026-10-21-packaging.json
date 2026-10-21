@@ -1,0 +1,10 @@
+{
+  "site_bytes": 997763935.0,
+  "headroom_bytes": 2236065.0,
+  "pack_bytes": 958448168,
+  "pack_sha256": "997714df1d608ba21846dc7f6fb9336847fa5632348cf843fef5dd2e093529ff",
+  "checksum_verified": true,
+  "normal_main": "res://scenes/main.tscn",
+  "lessons_3_4": "Not tested or updated",
+  "performance": "Conditional; review flags retained"
+}
