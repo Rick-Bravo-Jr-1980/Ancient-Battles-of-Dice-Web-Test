@@ -1,8 +1,8 @@
 {
-  "version": "2026-10-21",
+  "version": "2026-10-27-lesson3",
   "godot": "4.7.2",
-  "pack_bytes": 958448168,
-  "pack_sha256": "997714df1d608ba21846dc7f6fb9336847fa5632348cf843fef5dd2e093529ff",
+  "pack_bytes": 958456968,
+  "pack_sha256": "ad1f4a45d8529183fe47ca85f9d3f314ecb09b47262f3ac7054172b59ce7fd67",
   "pack_parts": [
     "index.pck.part000",
     "index.pck.part001",
@@ -24,7 +24,5 @@
     "index.pck.part017",
     "index.pck.part018",
     "index.pck.part019"
-  ],
-  "source_commit": "6ea70cc141b5bacbbb58fc2eeca1b394ff7d7ad9",
-  "performance_assessment": "conditional; see docs/performance/2026-10-21-release.txt"
+  ]
 }

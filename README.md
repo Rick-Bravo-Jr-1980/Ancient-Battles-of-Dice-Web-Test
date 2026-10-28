@@ -40,3 +40,8 @@ Godot runtime: 4.7.2 stable. Game artwork and audio remain subject to their resp
 
 The October 13 release lacked phase instrumentation. October 15 is the first measured instrumented development baseline, not a claim about historical frame rates. Its functional checks passed and performance acceptance was conditional. Keep that baseline distinct from the October 21 results above; changed browser versions and the updated victory fixture limit direct timing comparisons. Reports stay on the player's device unless the player chooses to export and share them.
 
+
+
+## October 27 update (published October 28)
+
+[Lesson 3 changes, play instructions and validation limitations](web/player-update.html).
