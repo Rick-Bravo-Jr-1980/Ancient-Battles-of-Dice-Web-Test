@@ -1,5 +1,7 @@
 # Ancient Battles of Dice — 2D Proof of Concept
 
+[October 31 approved Lesson 3 update](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/player-update.html) — revised narration, movement guidance, and textured wax seals.
+
 A playable browser proof of concept for a historical battle game, using 2D portrait artwork to explore battle rules, army presentation, deployment, and player interaction.
 
 [Play the proof of concept](https://Rick-Bravo-Jr-1980.github.io/Ancient-Battles-of-Dice-Web-Test/)
@@ -20,7 +22,7 @@ This release includes the deployment-drag performance fix and packaged-resource 
 
 ## Release status and publishing
 
-This is the October 21, 2026 approved-content browser build. The Pages workflow for the release commit determines its deployment status. It includes the revised first two lessons, recorded narration, integrated I/52 and II/7–II/12 animations, current charge/mounted rules and Lechaeum. Lessons 3 and 4 have not been tested or updated.
+This is the October 21, 2026 approved-content browser build. The Pages workflow for the release commit determines its deployment status. It includes the revised first two lessons, recorded narration, integrated I/52 and II/7–II/12 animations, current charge/mounted rules and Lechaeum. Lesson 3 now includes the approved October 31 update; Lesson 4 is not newly validated.
 
 The 958.4 MB resource package is 18.2% smaller than the unfiltered local build, while retaining current player content. It is larger than October 13 because of subsequent approved additions. Diagnostics stay local; their performance assessment remains conditional, with unresolved movement/camera timing review flags. See the [October 21 validation report](docs/performance/2026-10-21-release.txt) and [retained measurements](docs/performance/2026-10-21-measurements.json).
 
