@@ -1,0 +1,59 @@
+November 10, 2026 scheduled release validation (executed November 11 UTC)
+
+All seven Chrome/Edge fixture runs and the Firefox fixture passed battle completion and save/resume. Chrome diagnostics on/off used three interleaved pairs. Collector acceptance passed on Chrome, Edge and Firefox. No telemetry requests were observed by the Chrome/Edge harness.
+
+Measurements: headless desktop, Windows 11, Intel i5-8300H / UHD Graphics 630, ANGLE D3D11 for Chrome/Edge, 1280x900 viewport. Firefox uses the inner viewport recorded in JSON. Power state uncontrolled. Fresh browser contexts, localhost, OS filesystem cache uncontrolled. Wall-clock process-frame intervals, not GPU timings. Minimum FPS below is the median run minimum for Chrome, not a global minimum. Histogram bins cap at 1000 ms.
+
+chrome 156.0.8078.49 diagnostics on; runs=3; median load=24408 ms
+phase | average FPS | minimum FPS | p50/p95/p99 frame ms
+deployment | 24.71 | 5 | 41/59/1000
+movement | 19.17 | 16 | 53/65/77
+combat | 12.47 | 3 | 68/108/637
+camera | 16.83 | 14 | 55/72/74
+casualties | 15.50 | 8 | 58/87/506
+
+chrome 156.0.8078.49 diagnostics off; runs=3; median load=50848 ms
+phase | average FPS | minimum FPS | p50/p95/p99 frame ms
+deployment | 25.00 | 10 | 42/73/1000
+movement | 17.83 | 17 | 54/76/88
+combat | 12.14 | 4 | 69/122/750
+camera | 16.50 | 12 | 55/75/90
+casualties | 17.20 | 14 | 56/69/203
+
+edge 157.0.4341.42 diagnostics on; runs=1; median load=20067 ms
+phase | average FPS | minimum FPS | p50/p95/p99 frame ms
+deployment | 30.00 | 7 | 39/51/1000
+movement | 21.00 | 19 | 51/60/72
+combat | 11.43 | 4 | 72/140/602
+camera | 15.00 | 11 | 63/100/114
+casualties | 17.20 | 15 | 56/71/226
+
+firefox 158.0 diagnostics on; runs=1; median load=30253 ms
+phase | average FPS | minimum FPS | p50/p95/p99 frame ms
+deployment | 18.86 | 8 | 47/63/1000
+movement | 17.50 | 16 | 59/79/95
+combat | 10.25 | 2 | 76/138/956
+camera | 14.33 | 12 | 68/95/165
+casualties | 11.17 | 7 | 69/217/1000
+
+Performance assessment: conditional. Low combat frame rates and long-tail deployment/combat/casualty stalls remain visible. This is not a smooth-performance or zero-crash certification. October 21 comparison is INCOMPARABLE because browser versions changed; no improvement or regression is attributed to code. On/off results vary by phase and do not establish causal collector overhead. Recommended follow-up: repeat both builds on the same browser/power conditions, profile combat and first-use resource stalls, and test on the player device before optimization.
+
+Memory: CDP JavaScript heap only, not total memory (WASM/GPU largely excluded):
+chrome 0 on: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 22223144, "totalSize": 26808320, "embedderHeapUsedSize": 5594240, "backingStorageSize": 955142862}
+chrome 1 off: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 22325544, "totalSize": 28889088, "embedderHeapUsedSize": 7060808, "backingStorageSize": 955100874}
+chrome 2 off: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 18708436, "totalSize": 22630400, "embedderHeapUsedSize": 2232880, "backingStorageSize": 955100288}
+chrome 3 on: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 19622292, "totalSize": 22106112, "embedderHeapUsedSize": 4704440, "backingStorageSize": 955136028}
+chrome 4 on: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 25287668, "totalSize": 28594176, "embedderHeapUsedSize": 8673328, "backingStorageSize": 955132480}
+chrome 5 off: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 25639420, "totalSize": 27267072, "embedderHeapUsedSize": 8769832, "backingStorageSize": 955101002}
+edge 6 on: {"scope": "CDP JavaScript heap only; excludes most WASM/GPU allocations, not total game memory", "usedSize": 19037032, "totalSize": 22892544, "embedderHeapUsedSize": 1860176, "backingStorageSize": 955135510}
+Firefox total memory unavailable.
+
+Confirmed first-attempt issues: one Chrome collector active-second-tab assertion failed; isolated rerun passed. One production browser startup logged a WebAudio device/renderer error; isolated rerun and service-worker fallback passed. Causes unconfirmed; do not erase these observations or attribute them to host load as fact. Final acceptance runs reported no errors.
+
+Relevant Godot checks passed: release scope, progression gates, save round-trip, Lesson 3/4 recorded voice, Lesson 4 battle flow and post-roll UI, Lesson 5 deployment, lesson menu, information search, I/48 roster and cavalry animation, 168 live asset routes. Desktop automated checks are not a fresh manual five-lesson playthrough or mobile validation.
+
+Production startup before receipt-only packaging cleanup: isolation-header load 61258 ms; service-worker fallback 72202 ms. Final package browser results recorded separately in the release folder. Public network loading depends on connection speed.
+
+Final receipt-filtered production verification: Chrome header startup 75621 ms, service-worker fallback 33162 ms. Both cross-origin isolated; pack and WASM HTTP 200; zero console/page/HTTP errors and zero nonlocal requests in these checks. Pack 951,913,556 bytes, SHA256 93140f1f1ba7d0aec756d695cec02328c0c780f5cc6ada15a95bd0fbfeb72491. Normal main scene and title preserved. Generation receipts excluded from the browser pack.
+
+Final site including retained historical update documents: 991,237,394 bytes; hosting headroom 8,762,606 bytes. Previous published site 997,783,739 bytes; reduction 6,546,345 bytes. No blanket resolution or animation-frame reduction.

@@ -1,0 +1,9 @@
+{
+  "improvements": [],
+  "regressions": [],
+  "unresolved_stability_issues": [
+    "browser_version differs; rerun both builds in the same environment."
+  ],
+  "recommended_corrective_actions": [],
+  "comparability": "configuration_changed"
+}

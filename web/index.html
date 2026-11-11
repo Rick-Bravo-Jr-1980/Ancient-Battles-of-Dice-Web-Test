@@ -114,10 +114,10 @@ body {
 <script src="local-diagnostics.js"></script>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":958461656,"index.wasm":38820072},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":951913556,"index.wasm":38820072},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = true;
 /* ABD diagnostics begin */
-window.ABDiagnostics?.configure({"version": "2026-10-31-lesson3", "date": "2026-10-31", "package_bytes": 958461656, "wasm_bytes": 38820072});
+window.ABDiagnostics?.configure({"version": "2026-11-10-weekly", "date": "2026-11-10", "package_bytes": 951913556, "wasm_bytes": 38820072});
 GODOT_CONFIG.onPrintError = function(...args) { window.ABDiagnostics?.godotError(args.join(' ')); console.error(...args); };
 GODOT_CONFIG.onExit = function(code) { window.ABDiagnostics?.finish(code === 0 ? 'normal_exit' : 'engine_exit_error'); };
 /* ABD diagnostics end */
@@ -179,7 +179,7 @@ const engine = new Engine(GODOT_CONFIG);
 	if (missing.length !== 0) {
 		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
 			setStatusMode('notice');
-			setStatusNotice('Preparing browser support. The first game download is about 997 MB.');
+			setStatusNotice('Preparing browser support. The first game download is about 991 MB.');
 			const retryKey = 'godot-isolation-reload';
 			const prepare = async () => {
 				await navigator.serviceWorker.register(GODOT_CONFIG.serviceWorker);
