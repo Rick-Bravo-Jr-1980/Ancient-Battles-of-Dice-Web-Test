@@ -1,8 +1,8 @@
 {
-  "version": "2026-11-10-weekly",
+  "version": "2026-11-18-player-scope",
   "godot": "4.7.2",
-  "pack_bytes": 951913556,
-  "pack_sha256": "93140f1f1ba7d0aec756d695cec02328c0c780f5cc6ada15a95bd0fbfeb72491",
+  "pack_bytes": 561356392,
+  "pack_sha256": "68aa945b19ab7f3a67966b40ace79915009165d8e43a0249d3ffbe7408e88b91",
   "pack_parts": [
     "index.pck.part000",
     "index.pck.part001",
@@ -15,14 +15,6 @@
     "index.pck.part008",
     "index.pck.part009",
     "index.pck.part010",
-    "index.pck.part011",
-    "index.pck.part012",
-    "index.pck.part013",
-    "index.pck.part014",
-    "index.pck.part015",
-    "index.pck.part016",
-    "index.pck.part017",
-    "index.pck.part018",
-    "index.pck.part019"
+    "index.pck.part011"
   ]
 }

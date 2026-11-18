@@ -1,5 +1,9 @@
 # Ancient Battles of Dice — 2D Proof of Concept
 
+[November 18 player update](web/player-update-2026-11-18-player-scope.md) — player-accessible Act I/II content and a smaller download.
+
+Current web scope: tutorials, Act I and Act II battles, and their eight skirmish armies. Later army artwork remains in local development.
+
 [November 10 weekly player update](web/player-update-2026-11-10-weekly.md) — approved tutorials, Game Information, Lechaeum and I/48 cavalry animations.
 
 A playable browser proof of concept for a historical battle game, using 2D portrait artwork to explore battle rules, army presentation, deployment, and player interaction.

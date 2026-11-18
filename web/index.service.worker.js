@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '2026-11-10-weekly';
+const CACHE_VERSION = '2026-11-18-player-scope';
 /** @type {string} */
 const CACHE_PREFIX = 'Ancient Battles -sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
